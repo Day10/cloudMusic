@@ -1,0 +1,22 @@
+.wrap{
+    background-color: #e24e48;
+    width: 100%
+}
+.search-input{
+    background-color: #ffffff;
+    width: 70%;
+    margin: 10px 20px;
+    border-radius: 10px;
+    border: 0;
+    padding: 5px 10px;
+}
+.music-info-icon{
+    color: #ffffff;
+    font-size: 18px;
+    display: inline-block;
+    width: 40px;
+    height: 27px;
+    margin: 10px 0;
+    text-align: center;
+    vertical-align: middle
+}

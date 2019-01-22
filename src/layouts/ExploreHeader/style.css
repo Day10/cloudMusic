@@ -1,0 +1,8 @@
+.tab-wrap{
+    height: 50px;
+    background-color: #e24e48
+}
+html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after{
+    background-color: #e24e48
+}
+    
