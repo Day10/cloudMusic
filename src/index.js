@@ -8,7 +8,6 @@ import configStore from './store/configStore';
 import * as actions from './actions'
 
 const store = configStore();
-store.dispatch(actions.setTracks(tracks));
 
 const tracks = [
     {
