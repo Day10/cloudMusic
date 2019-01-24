@@ -2,34 +2,50 @@ import React, { Component } from 'react';
 import {Button} from 'antd-mobile';
 import axios from 'axios'
 import {getHomeData} from '../../actions/index'
-import {store} from "../../store/configStore"
+import { store } from "../../store/configStore"
+import { connect } from 'react-redux'
 
 class Explore extends Component{
-    constructor () {
-        super();
-        this.state = {
-            personalized: []
-        }
+    constructor (props) {
+        super(props);
     }
     componentDidMount() {
-        store.dispatch(getHomeData());
-        const state = store.getState()
-        this.setState = {
-            personalized: state.explore.personalized
-        };
-        console.log(this.state, 123)
+        this.props.getHomeData();
     }
+
     render() {
         return ( 
-            <div>
+            <div> 
                 {
-                    this.state.personalized.length > 0 && this.state.personalized.data.result.map(item => {
-                        return <div key={item.id}>item.name</div>
+                    this.props.explore.personalized.map(item => {
+                        return (
+                            <div key={item.id}>
+                                <img src={item.picUrl} style={{ width: '40px', height: '40px'}}></img>
+                                {item.name}
+                            </div>
+                        )
                     })
                 }
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
 
-export default Explore;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getHomeData: () => {
+            dispatch(getHomeData())
+        }
+    }
+}
+
+const ExploreContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Explore)
+export default ExploreContainer;

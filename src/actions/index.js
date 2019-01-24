@@ -1,6 +1,6 @@
 import { setTracks } from './tracks';
-import {getHomeData} from './explore'
-import * as actionType from '../constants/actionTypes'
+import { getHomeData } from './explore'
+
 
 export {
     setTracks,

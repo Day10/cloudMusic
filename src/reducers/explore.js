@@ -1,4 +1,4 @@
-import {GET_HOME_DATA, FETCH_POSTS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS} from '../constants/actionTypes'
+import {FETCH_REQUEST, FETCH_FAILURE, FETCH_SUCCESS} from '../constants/actionTypes'
 const initalState = {
     banners: [],
     personalized: [],
@@ -7,12 +7,18 @@ const initalState = {
 }
 
 const exploreReducer = (state = initalState, action) => {
-    switch(action.type){
-        case FETCH_POSTS_SUCCESS:
+    switch (action.type) {
+        case FETCH_REQUEST:
+            console.log('loading...')
+            return state;
+        case FETCH_SUCCESS:
             return {
                 ...state,
-                ...{personalized: action.payload}
+                ...{personalized: action.payload.data.result}
             };
+        case FETCH_FAILURE:
+            console.log('error')
+            return state;
         default:
             return state
     }
